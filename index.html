@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Main Template CSS File -->
+    <link rel="stylesheet" href="css/template.css">
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Normlize CSS -->
+    <link rel="stylesheet" href="css/normlize.css">
+    <title>INTRACTIVE CARD</title>
+</head>
+
+<body>
+    <!-- <div class="background"></div> -->
+    <div class="template">
+        <div class="container">
+            <div class="cards-part">
+                <div class="card-front">
+                    <i><img src="./images/card-logo.svg" alt=""></i>
+                    <p class="front-result" id="front-result">0000 0000 0000 0000</p>
+                    <div class="details">
+                        <p class="name" id="new-name">JANE APLASEED</p>
+                        <p class="date">
+                            <span class="year" id="new-year">00 /</span>
+                            <span class="month" id="new-month">00</span>
+                        </p>
+                    </div>
+                    <img class="card" src="./images/bg-card-front.png" alt="">
+                </div>
+                <div class="card-back">
+                    <p class="back-result" id="back-result">000</p>
+                    <img class="card" src="./images/bg-card-back.png" alt="">
+                </div>
+            </div>
+            <div class="form-part">
+                <form action="###">
+                    <div class="field">
+                        <label for="">CARDHOLDER NAME</label>
+                        <input class="holder-name" placeholder="e.g. JANE Appleseed" type="text">
+                        <p class="name-error"></p>
+                    </div>
+                    <div class="field">
+                        <label for="">CARD NUMBER</label>
+                        <input class="card-number" placeholder="e.g. 1234 5678 9234 0000" type="text">
+                        <p class="number-error"></p>
+                    </div>
+                    <div class="field">
+                        <div class="date">
+                            <div class="label">
+                                <label for="">EXP.DATE (MM/YY)</label>
+                                <label for="cvc">CVC</label>
+                            </div>
+                            <div class="inputs">
+                                <div>
+                                    <input id="month" placeholder="MM" type="text">
+                                    <input id="year" placeholder="YY" type="text">
+                                </div>
+                                <div>
+                                    <input id="cvc" placeholder="e.g. 123" type="text">
+                                </div>
+                            </div>
+                            <div>
+                                <p class="exp-error"></p>
+                                <p class="cvc-error"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input class="success" type="submit" value="Confirm">
+                    </div>
+                </form>
+                <div class="complete">
+                    <div><img src="./images/icon-complete.svg" alt=""></div>
+                    <h3>THANK YOU!</h3>
+                    <p>We've added your card details</p>
+                    <div class="button">
+                        <input class="done-btn" type="submit" value="Continue">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <!-- Javascript File -->
+    <script src="./js/master.js"></script>
+</body>
+
+</html>
