@@ -65,7 +65,7 @@ success.addEventListener("click", function () {
 });
 
 function isValidName(name) {
-    var validReg = /^[a-zA-Z]*$/;
+    var validReg = /^[a-zA-Z_]+( [a-zA-Z_]+)*$/;
     if (isEmpty(name)) {
         return { isSuccess: false, error: "can't be blank" };
     }
