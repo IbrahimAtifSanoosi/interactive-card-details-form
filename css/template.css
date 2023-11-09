@@ -161,6 +161,7 @@ input:focus {
     .template form .field .date .inputs #month,
     .template form .field .date .inputs #year {
         max-width: 50px;
+        text-align: center;
     }
 }
 
@@ -337,7 +338,7 @@ form .field .number-error,
     right: -50px;
     position: relative;
     /* margin-left: 10px; */
-    bottom: 13px;
+    bottom: 8px;
 }
 
 /* End Error Part */
