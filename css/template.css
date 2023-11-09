@@ -57,7 +57,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 20px auto;
 }
 
 .template .container {
@@ -70,16 +70,14 @@ body {
 
     .template .container {
         flex-direction: column;
-        justify-content: center;
     }
 }
 
 /* Start Form Part */
 .template form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
 .template form .field {
@@ -99,10 +97,18 @@ label {
     font-weight: var(--font-weight);
 }
 
+@media(max-width: 767px) {
+
+    label,
+    input {
+        font-size: 13px;
+    }
+}
+
 input {
     color: var(--Light-grayish-violet);
     font-size: var(--input-font-size);
-    padding: 20px 10px;
+    padding: 20px 0px;
     border-radius: 5px;
     border: 1px solid var(--Light-grayish-violet);
     cursor: pointer;
@@ -169,7 +175,6 @@ input:focus {
     display: grid;
     align-items: center;
     justify-content: center;
-
     position: relative;
 }
 
