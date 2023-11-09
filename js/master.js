@@ -18,8 +18,12 @@ const form = document.querySelector("form");
 const formPart = document.querySelector(".form-part");
 const complete = document.querySelector(".complete");
 
-
 const CURRENT_YEAR = new Date().getFullYear();
+holderName.addEventListener('input', function () { newName.textContent = this.value; });
+cardNumber.addEventListener('input', function () { newCard.textContent = this.value; });
+month.addEventListener('input', function () { newMonth.textContent = this.value; });
+year.addEventListener('input', function () { newYear.textContent = this.value; });
+cvc.addEventListener('input', function () { newCvc.textContent = this.value; });
 
 success.addEventListener("click", function () {
     resetField(nameError, holderName);
@@ -28,12 +32,10 @@ success.addEventListener("click", function () {
     resetField(expError, year);
     resetField(cvcError, cvc);
 
-
     let nameValidation = isValidName(holderName.value);
     let cardValidation = isValidCard(cardNumber.value);
     let expDateValidation = isValidExpDate(month.value, year.value);
     let cvcValidation = isValidCvc(cvc.value);
-
     if (!nameValidation.isSuccess) {
         showErorr(holderName, nameError, nameValidation.error);
     }
@@ -59,16 +61,11 @@ success.addEventListener("click", function () {
         console.log("complete....");
         form.style.cssText = "display: none";
         complete.style.cssText = "display: flex";
-
-        done.addEventListener("click", function () {
-            complete.style.cssText = "display: none";
-            form.style.cssText = "display: block";
-        });
     }
 });
 
 function isValidName(name) {
-    var validReg = /^[a-zA-Z]/;
+    var validReg = /^[a-zA-Z]*$/;
     if (isEmpty(name)) {
         return { isSuccess: false, error: "can't be blank" };
     }
@@ -81,19 +78,19 @@ function isValidName(name) {
 }
 
 function isValidCard(number) {
-    var validReg = /^[0-9]/;
+    var validReg = /\b(\d{4}\s\d{4}\s\d{4}\s\d{4}$)\b/;
     if (isEmpty(number)) {
         return { isSuccess: false, error: "can't be blank" };
     }
-    if (number.length != 12) {
-        return { isSuccess: false, error: "Must be valid number" };
-    }
+    // if (number.length != 19) {
+    //     return { isSuccess: false, error: "Must be valid number" };
+    // }
     if (number.match(validReg)) {
         return { isSuccess: true };
     }
 
     else {
-        return { isSuccess: false, error: "Must be valid number" };
+        return { isSuccess: false, error: "Wrong format, numbers only eg. 1234 5567 8909 7654" };
     }
 }
 
@@ -104,7 +101,6 @@ function isValidExpDate(month, year) {
         return { isSuccess: false, error: "can't be blank" };
     }
 
-
     if ((month > 0 && month <= 12) && (year > CURRENT_YEAR)) {
         return { isSuccess: true };
     }
@@ -112,11 +108,10 @@ function isValidExpDate(month, year) {
     else {
         return { isSuccess: false, error: "Must be valid date" };
     }
-
 }
 
 function isValidCvc(cvc) {
-    var validReg = /^[0-9]/;
+    var validReg = /^[0-9]*$/;
 
     if (isEmpty(cvc)) {
         return { isSuccess: false, error: "can't be blank" };
@@ -127,7 +122,7 @@ function isValidCvc(cvc) {
     }
 
     else {
-        return { isSuccess: false, error: "Must be valid date" };
+        return { isSuccess: false, error: "Must be valid cvc eg:123" };
     }
 
 }

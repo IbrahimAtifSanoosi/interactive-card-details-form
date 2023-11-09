@@ -23,6 +23,16 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(../images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-size: 30% 100%;
+}
+
+@media (max-width: 767px) {
+    body {
+        background-size: 100% 50%;
+
+    }
 }
 
 .container {
@@ -54,10 +64,10 @@ body {
 /* End Global Rules */
 
 .template {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    height: 100vh;
 }
 
 .template .container {
@@ -172,96 +182,92 @@ input:focus {
 
 /* End Form Part */
 /* Start Cards Part */
-.cards-part {
+.template .cards-part {
+    padding: 20px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* position: relative; */
+    gap: 20px;
 }
 
-@media(max-width :767px) {
-    .cards-part {
-        display: flex;
+@media (max-width: 767px) {
+    .template .cards-part {
         flex-direction: column-reverse;
     }
-
-    .cards-part .card {
-        width: 300px;
-    }
-
-    .cards-part .card-front {
-        position: absolute;
-        right: 10px;
-        z-index: 4;
-    }
-
-    .cards-part .card-back {
-        position: absolute;
-        top: 50px;
-        left: 20px;
-    }
 }
 
-.cards-part .card-front {
+
+/* Start Card Front Part */
+.template .cards-part .card-front {}
+
+.template .cards-part .card-front .front-image {
+    /* width: 100%; */
+    height: 200px;
+    overflow: hidden;
     position: relative;
 }
 
-.cards-part .card-front i img {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.cards-part .card-front .front-result {
-    position: absolute;
-    width: calc(100%);
-    padding: 20px 0px;
-    bottom: 20%;
-    color: white;
-    background-color: transparent;
-    text-align: center;
-    font-size: 30px;
-}
-
-.cards-part .card-front .details {
+.template .cards-part .card-front .front-image i img {
+    height: 100%;
     width: 100%;
     position: absolute;
-    display: flex;
-    background-color: transparent;
-    justify-content: space-around;
-    color: white;
-    bottom: 20px;
 }
 
-.cards-part .card-back {
-    position: relative;
-    top: 20px;
-    left: 80px;
-}
-
-@media(max-width: 767px) {
-    .cards-part .card-back {
-        position: relative;
-        margin-top: 70px;
-        left: 0;
-    }
-}
-
-.cards-part .card-back .back-result {
+.template .cards-part .card-front .front-image .logo img {
     position: absolute;
-    width: calc(100% - 80px);
-    left: 40px;
-    right: 40px;
-    padding: 0px;
-    margin: 0px;
-    bottom: 44%;
-    color: white;
-    background-color: transparent;
-    text-align: end;
-    font-size: 30px;
-    padding-right: 5px;
+    top: 20px;
+    left: 20px;
 }
+
+.template .cards-part .card-front .front-image .front-result {
+    position: absolute;
+    color: var(--White);
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: var(--input-font-size);
+}
+
+.template .cards-part .card-front .front-image .details {
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    display: flex;
+    justify-content: space-around;
+    color: var(--White);
+}
+
+/* End Card Front Part */
+/* Start Card Back Part */
+.template .cards-part .card-back {}
+
+.template .cards-part .card-back .back-image {
+    /* width: 100%; */
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    /* margin-left: 50px; */
+
+}
+
+.template .cards-part .card-back .back-image img {
+    height: 100%;
+    width: 100%;
+}
+
+.template .cards-part .card-back .back-image .back-result {
+    position: absolute;
+    width: 100%;
+    color: white;
+    bottom: 37%;
+    right: 0px;
+    text-align: end;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+/* End Card Back Part */
+
 
 /* End Cards Part */
 
@@ -328,8 +334,9 @@ form .field .number-error,
     color: red;
     font-size: 12px;
     font-weight: var(--font-weight);
-    left: 13px;
+    right: -50px;
     position: relative;
+    /* margin-left: 10px; */
     bottom: 13px;
 }
 
